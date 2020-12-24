@@ -10,17 +10,73 @@
 
     <body style="margin: 0; overflow: hidden;">
         <!-- Location based placement -->
-        <!-- <a-scene
+        <a-scene
             vr-mode-ui="enabled: false"
             embedded
             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
             
             <a-camera gps-camera rotation-reader></a-camera> 
-            <a-entity gltf-model="./assets/asset.glb" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" animation-mixer/>
-        </a-scene> -->
+            <a-entity 
+                gltf-model="./assets/asset.glb" 
+                scale="0.03 0.03 0.03"
+                rotation="180 0 0"
+                position="0 0 1"
+                gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" 
+                animation-mixer
+            />
+
+            <a-entity 
+                gltf-model="./assets/asset.glb" 
+                scale="1 1 1"
+                rotation="180 0 0"
+                position="0 0 1"
+                gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" 
+                animation-mixer
+            />
+
+            <a-entity 
+                gltf-model="./assets/asset.glb" 
+                scale="0.5 0.5 0.5"
+                rotation="180 0 0"
+                position="0 0 1"
+                gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" 
+                animation-mixer
+            />
+
+            <a-entity 
+                gltf-model="./assets/asset.glb" 
+                scale="5 5 5"
+                rotation="180 0 0"
+                position="0 0 1"
+                gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" 
+                animation-mixer
+            />
+
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.03 0.03 0.03"
+                    rotation="180 0 0"
+                    position="0 0 1"
+                    animation-mixer="loop: repeat"
+                    gltf-model="./assets/asset.glb" 
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+        </a-scene>
 
         <!-- Marker based placement -->
-        <a-scene
+        <!-- <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
@@ -48,7 +104,9 @@
             >
                 <a-entity
                     id="bowser-model"
-                    scale="1.9228198947694575 1.9228198947694575 1.9228198947694575"
+                    scale="0.03 0.03 0.03"
+                    rotation="180 0 0"
+                    position="0 0 1"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
                     class="clickable"
@@ -57,6 +115,6 @@
             </a-marker>
 
             <a-entity camera></a-entity>
-        </a-scene>
+        </a-scene> -->
     </body>
 </html>
