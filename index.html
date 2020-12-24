@@ -8,12 +8,46 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
 
+    <!-- 
+        This is very frustrating 
+        The text below will work, but both text values will be displayed over the top of one another
+        Whats more, the text is always displaying behind me when looking at the house. It doesn't stay in one place, it moves with the phone, and is always too close to the fucking phone..
+    -->
+
     <body style="margin: 0; overflow: hidden;">
+        <a-scene vr-mode-ui="enabled: false" renderer='antialias: true; alpha:true'
+        arjs='videoTexture: true; sourceType: webcam; debugUIEnabled: false'>
+        <a-camera id='camera1' near="0.1" far="50000" fov="80"
+            rotation-reader vertical-controls wasd-controls="acceleration: 1300">
+        </a-camera>
+
+        <a-text
+                value="With a negative-gps-camera"
+                look-at="[gps-camera]"
+                scale="100 100 100"
+                gps-entity-place="latitude: -35.01527778; longitude: 138.60944444"
+            ></a-text>
+
+        <!-- This is perhaps 1.5 kilometres from the starting point.
+             With videoTexture: false it does not appear.
+             With videoTexture: true, it does. -->
+        <a-box gps-entity-place='latitude: -35.01527778; longitude: 138.60944444' material='color: blue'
+            position='0 90 0' scale='100 100 100'>
+        </a-box>
+    </a-scene>
+    
         <!-- Location based placement -->
-        <a-scene
+        <!-- <a-scene
             vr-mode-ui="enabled: false"
             embedded
-            arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+            renderer='antialias: true; alpha:true'
+            arjs='sourceType: webcam; debugUIEnabled: true;'>
+            <a-box gps-entity-place='latitude: -35.01527778; longitude: 138.60944444' material='color: blue'
+            position='0 90 0' scale='100 100 100'>
+            <a-camera id='camera1' near="0.1" far="50000" fov="80"
+            gps-camera='simulateLatitude: -35.01527778; simulateLongitude: 138.60944444'
+            rotation-reader vertical-controls wasd-controls="acceleration: 1300">
+        </a-camera>
             
             <a-text
                 value="With a negative-gps-camera"
@@ -26,7 +60,7 @@
                 value="With a negative-no-camera"
                 scale="100 100 100"
                 gps-entity-place="latitude: -35.01527778; longitude: 138.60944444;"
-            ></a-text>
+            ></a-text> -->
       
             
             <!-- <a-entity 
@@ -87,8 +121,8 @@
                 ></a-entity>
             </a-marker> -->
 
-            <a-camera gps-camera rotation-reader></a-camera> 
-        </a-scene>
+            <!-- <a-camera camera rotation-reader gps-camera='simulateLatitude: -35.01527778; simulateLongitude: 138.60944444'></a-camera> -->
+        <!-- </a-scene> -->
 
         <!-- Marker based placement -->
         <!-- <a-scene
