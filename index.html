@@ -16,16 +16,30 @@
             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
             
             <a-text
-                value="This content will always face you."
+                value="With a negative"
                 look-at="[gps-camera]"
-                scale="120 120 120"
+                scale="100 100 100"
                 gps-entity-place="latitude: -35.01527778; longitude: 138.60944444;"
             ></a-text>
 
             <a-text
-                value="This content will always face you."
+                value="With a positive"
                 look-at="[gps-camera]"
-                scale="120 120 120"
+                scale="100 100 100"
+                gps-entity-place="latitude: 35.01527778; longitude: 138.60944444;"
+            ></a-text>
+
+            <a-text
+                value="With a negative-camera"
+                look-at="[camera]"
+                scale="100 100 100"
+                gps-entity-place="latitude: -35.01527778; longitude: 138.60944444;"
+            ></a-text>
+
+            <a-text
+                value="With a positive-camera"
+                look-at="[camera]"
+                scale="100 100 100"
                 gps-entity-place="latitude: 35.01527778; longitude: 138.60944444;"
             ></a-text>
       
