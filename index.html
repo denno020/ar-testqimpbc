@@ -9,15 +9,18 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-        <a-scene
-        vr-mode-ui="enabled: false"
-		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-        
-        <a-camera gps-camera rotation-reader></a-camera> 
-        <a-entity gltf-model="./assets/asset.glb" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" animation-mixer/>
-	</a-scene>
+        <!-- Location based placement -->
         <!-- <a-scene
+            vr-mode-ui="enabled: false"
+            embedded
+            arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+            
+            <a-camera gps-camera rotation-reader></a-camera> 
+            <a-entity gltf-model="./assets/asset.glb" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: -35.01538836657758; latitude: 138.60960205305548;" animation-mixer/>
+        </a-scene> -->
+
+        <!-- Marker based placement -->
+        <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
@@ -33,17 +36,27 @@
                 ></a-asset-item>
             </a-assets>
 
-            <a-entity
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
                     id="bowser-model"
                     scale="1.9228198947694575 1.9228198947694575 1.9228198947694575"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
                     class="clickable"
                     gesture-handler
-                    gps-entity-place="longitude: -35.0155118; latitude: 138.6096444;"
                 ></a-entity>
+            </a-marker>
 
             <a-entity camera></a-entity>
-        </a-scene> -->
+        </a-scene>
     </body>
 </html>
